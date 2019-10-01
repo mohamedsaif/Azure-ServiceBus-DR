@@ -2,6 +2,16 @@
 
 Azure CLI sample showing the process of leveraging Azure Service Bus Geo-disaster recovery
 
+The guide script can be found here [service-bus-provisioning.sh](provisioning/service-bus-provisioning.sh)
+
+This guid show the following:
+
+1. Creating 2 new Service Bus namespaces in 2 different regions
+2. Establish geo-pairing between the primary and secondary namespaces
+3. Create various entities in the primary namespace (which will be replicated to the secondary namespace)
+4. Fail over to secondary namespace
+5. Create a new geo paired namespace (as the pairing to the old primary no long exists)
+
 ## About the project
 
 I tried to make sure I cover all aspects and best practices while building this project, but all included architecture, code, documentation and any other artifact represent my personal opinion only. Think of it as a suggestion of how a one way things can work.
