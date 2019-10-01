@@ -12,6 +12,23 @@ This guid show the following:
 4. Fail over to secondary namespace
 5. Create a new geo paired namespace (as the pairing to the old primary no long exists)
 
+## When to trigger fail over?
+
+You can implement your custom health probe to watch over the Service Bus healthiness. This gives you great control but you also own this logic.
+
+I would recommend leveraging Azure Monitor (which is enabled by default on your provisioned Service Bus namespaces).
+
+Azure Monitor supports creating alerts. This alert can be monitor over server errors over a specific period of time.
+
+If you want to build an automated action based on raised alert, you can leverage Logic Apps built in connections to call a fail over API you provide to perform the fail over tasks like:
+
+1. Instruct Azure Service Bus to fail over to secondary
+2. Create a new forward Service Bus namespace and establish pairing
+3. Run a background worker to wait for the old primary to be back online to recover any messages that you still need to process.
+4. Delete the old primary when you finished your recovery.
+
+Sample Logic Apps integration with Azure Monitor alerts can be found here [Action Groups Logic App](https://docs.microsoft.com/en-us/azure/azure-monitor/platform/action-groups-logic-app)
+
 ## Script
 
 ```bash
