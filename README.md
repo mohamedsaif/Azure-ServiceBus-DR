@@ -4,6 +4,8 @@ Azure CLI sample showing the process of leveraging Azure Service Bus Geo-disaste
 
 The guide script can be found here [service-bus-provisioning.sh](provisioning/service-bus-provisioning.sh)
 
+Most of the provisions done via Azure CLI, can be done also via Service Bus SDK (like creating namespaces, topics, geo paring,...). Check this sample for an overview [.NET GeoDR for Service Bus](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/GeoDR/SBGeoDR2/SBGeoDR2)
+
 This guid show the following:
 
 1. Creating 2 new Service Bus namespaces in 2 different regions
